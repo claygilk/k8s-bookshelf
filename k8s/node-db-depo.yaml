@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    db: node-db-depo
+  name: node-db-depo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: node-db-depo
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: node-db-depo
+    spec:
+      containers:
+      - image: claygilk/node-db
+        name: node-db
+        resources: {}
+status: {}

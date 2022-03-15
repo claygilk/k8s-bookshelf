@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    frontend: vue-bookshelf-depo
+  name: vue-bookshelf-depo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vue-bookshelf-depo
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: vue-bookshelf-depo
+    spec:
+      containers:
+      - image: claygilk/vue-bookshelf
+        name: vue-bookshelf-depo
+        resources: {}
+status: {}
