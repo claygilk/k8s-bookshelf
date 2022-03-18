@@ -1,0 +1,75 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    api: node-api-depo
+  name: node-api-depo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: node-api-depo
+  template:
+    metadata:
+      labels:
+        app: node-api-depo
+    spec:
+      containers:
+      - image: claygilk/node-api
+        name: node-api
+        ports:
+          - name: http
+            containerPort: 3000
+            protocol: TCP        
+
+# Created From:
+# kubectl create deployment node-api-depo --image=claygilk/node-api --dry-run=client -oyaml 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    db: node-db-depo
+  name: node-db-depo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: node-db-depo
+  template:
+    metadata:
+      labels:
+        app: node-db-depo
+    spec:
+      containers:
+      - image: claygilk/node-db
+        name: node-db
+        ports:
+          - name: http
+            containerPort: 3000
+            protocol: TCP
+--- 
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: vue-bookshelf-depo
+  name: vue-bookshelf-depo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vue-bookshelf-depo
+  template:
+    metadata:
+      labels:
+        app: vue-bookshelf-depo
+    spec:
+      containers:
+      - image: claygilk/vue-bookshelf
+        name: vue-bookshelf-depo
+        ports:
+          - name: http
+            containerPort: 8080
+            protocol: TCP

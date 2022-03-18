@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: vue-bookshelf-svc
+spec:
+  selector:
+    app: vue-bookshelf-depo
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
