@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    api: node-api-depo
+    app: node-api-depo
   name: node-api-depo
 spec:
   replicas: 1
@@ -29,7 +29,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    db: node-db-depo
+    app: node-db-depo
   name: node-db-depo
 spec:
   replicas: 1
