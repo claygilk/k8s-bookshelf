@@ -7,10 +7,10 @@ spec:
     app: node-api-depo
   ports:
     - protocol: TCP
+      name: nodejs
       port: 80
       targetPort: "http"
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
@@ -23,15 +23,20 @@ spec:
       port: 80
       targetPort: "http"
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
+  creationTimestamp: null
+  labels:
+    app: vue-bookshelf-depo
   name: vue-bookshelf-svc
 spec:
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: http
   selector:
     app: vue-bookshelf-depo
-  ports:
-    - protocol: TCP
-      port: 80
-      targetPort: "http"
+  type: NodePort
+status:
+  loadBalancer: {}
