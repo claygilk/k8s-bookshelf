@@ -23,3 +23,10 @@ spec:
             name: node-api-svc
             port:
               number: 80
+      - path: /db/(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: node-db-svc
+            port:
+              number: 80   
