@@ -37,6 +37,5 @@ spec:
     targetPort: http
   selector:
     app: vue-bookshelf-depo
-  type: NodePort
 status:
   loadBalancer: {}

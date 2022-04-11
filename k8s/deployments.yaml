@@ -77,7 +77,7 @@ spec:
         app: vue-bookshelf-depo
     spec:
       containers:
-      - image: claygilk/vue-bookshelf:v1.2
+      - image: claygilk/vue-bookshelf:v1.3
         name: vue-bookshelf-depo
         # livenessProbe:
         #   initialDelaySeconds: 30
